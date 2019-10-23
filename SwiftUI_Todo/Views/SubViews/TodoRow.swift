@@ -9,24 +9,30 @@
 import SwiftUI
 
 struct TodoRow: View {
-//    var name: String
-    var todoItem: TodoItem
+    @Binding var todoItem: TodoItem
 
     var body: some View {
         HStack {
-            // todo: replace this with a textfield
-                // to keep the item in sync, should this be replaced with an environment object that has a bound property?
-            Text(todoItem.name)
+            TextField("", text: $todoItem.name)
                 .foregroundColor(setTextColor())
             Spacer()
-            // todo: replace this with a button
-            checkmarkImage()
-                .foregroundColor(.accentColor)
+            // todo: isolate the touch action to only the checkmark area
+            Button(action: {
+                self.toggleCheckmark()
+            }, label: {
+                checkmarkImage()
+                    .foregroundColor(.accentColor)
+            })
         }
-        .padding(.horizontal, 16.0)
+        .buttonStyle(PlainButtonStyle())
     }
 
-    // todo: implement toggle
+    // ?? - should this be mutating?
+    // should be a state property
+    func toggleCheckmark() {
+        todoItem.isChecked = !todoItem.isChecked
+    }
+
     func checkmarkImage() -> Image {
         return todoItem.isChecked
             ? Image(systemName: "checkmark.square.fill")
@@ -40,12 +46,7 @@ struct TodoRow: View {
 
 struct TodoRow_Previews: PreviewProvider {
     static var previews: some View {
-        TodoRow(todoItem:
-            TodoItem(
-                name: "Eat lunch",
-                isChecked: true
-            )
-        )
+        TodoRow(todoItem: .constant(TodoItem(name: "Eat lunch", isChecked: true)))
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

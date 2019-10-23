@@ -8,41 +8,61 @@
 
 import SwiftUI
 
-// todo: replace with environment object
-    // what to use for persistent storage?
-        // CoreData?
-        // ben's API?
-            // https://github.com/BenjaminEarley/core-todo-api
-var todoItems: [TodoItem] = [
-    TodoItem(name: "Read chapter 5", isChecked: false),
-    TodoItem(name: "Eat lunch", isChecked: true),
-    TodoItem(name: "Be a better human", isChecked: false)
-]
-
 struct TodoList: View {
+    // todo: replace with environment object
+        // what to use for persistent storage?
+            // CoreData?
+            // ben's API?
+                // https://github.com/BenjaminEarley/core-todo-api
+    @State private var todoItems: [TodoItem] = [
+        TodoItem(name: "Read chapter 5", isChecked: false),
+        TodoItem(name: "Eat lunch", isChecked: true),
+        TodoItem(name: "Be a better human", isChecked: false)
+    ]
+
     var body: some View {
         NavigationView {
-            List(todoItems, id: \.id) { item in
-                TodoRow(todoItem: item)
+            // todo: replace this enumeration after the code has been
+            // moved into an environment object
+            List(todoItems.indices) { idx in
+                TodoRow(todoItem: self.$todoItems[idx])
             }
             .navigationBarTitle(Text("Todo"))
-        .navigationBarItems(trailing: AddItem())
+            .navigationBarItems(trailing:
+                Button(action: {
+                    // todo: figure out how to add a todo entry
+                    self.todoItems.append(TodoItem(name: "foop", isChecked: false))
+                }, label: {
+                    Text("Add item")
+                        .foregroundColor(.accentColor)
+                    Image(systemName: "plus")
+                        .foregroundColor(.accentColor)
+                })
+            )
+
+
+            //AddItem(todoItems: todoItems))
         }
     }
 }
 
-// ?? is this the right way to add a navigation button??
-struct AddItem: View {
-    var body: some View {
-        // todo: replace this with a button
-        HStack {
-            Text("Add item")
-                .foregroundColor(.accentColor)
-            Image(systemName: "plus")
-                .foregroundColor(.accentColor)
-        }
-    }
-}
+// ?? is this the right way to add a navigation button?
+//struct AddItem: View {
+//    @State var todoItems: [TodoItem]
+//
+//    var body: some View {
+//
+//    Button(action: {
+//        // todo: implement adding an item
+//        self.todoItems.append(TodoItem(name: "foop", isChecked: false))
+//    }, label: {
+//        Text("Add item")
+//            .foregroundColor(.accentColor)
+//        Image(systemName: "plus")
+//            .foregroundColor(.accentColor)
+//    })
+//    }
+//}
 
 struct TodoList_Previews: PreviewProvider {
     static var previews: some View {
