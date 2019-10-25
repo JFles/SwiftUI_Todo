@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct TodoRow: View {
-    @Binding var todoItem: TodoItem
+    @State var todoItem: TodoItem
 
     var body: some View {
         HStack {
             TextField("", text: $todoItem.name)
                 .foregroundColor(setTextColor())
             Spacer()
-            // todo: isolate the touch action to only the checkmark area
             Button(action: {
                 self.toggleCheckmark()
             }, label: {
@@ -27,8 +26,6 @@ struct TodoRow: View {
         .buttonStyle(PlainButtonStyle())
     }
 
-    // ?? - should this be mutating?
-    // should be a state property
     func toggleCheckmark() {
         todoItem.isChecked = !todoItem.isChecked
     }
@@ -46,7 +43,7 @@ struct TodoRow: View {
 
 struct TodoRow_Previews: PreviewProvider {
     static var previews: some View {
-        TodoRow(todoItem: .constant(TodoItem(name: "Eat lunch", isChecked: true)))
+        TodoRow(todoItem: TodoItem(name: "Eat lunch", isChecked: true))
             .previewLayout(.fixed(width: 300, height: 70))
     }
 }

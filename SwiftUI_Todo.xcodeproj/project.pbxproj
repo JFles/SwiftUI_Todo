@@ -16,6 +16,7 @@
 		605F3B36235E3CED00F5A64C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 605F3B34235E3CED00F5A64C /* LaunchScreen.storyboard */; };
 		605F3B41235E3CED00F5A64C /* SwiftUI_TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605F3B40235E3CED00F5A64C /* SwiftUI_TodoTests.swift */; };
 		605F3B4C235E3CED00F5A64C /* SwiftUI_TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605F3B4B235E3CED00F5A64C /* SwiftUI_TodoUITests.swift */; };
+		6080EACF23634AAA00829B92 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080EACE23634AA900829B92 /* UserData.swift */; };
 		60B17DBD235E3FE5002A17D5 /* TodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B17DBC235E3FE5002A17D5 /* TodoRow.swift */; };
 		60F77EF8235FF0AD009252C2 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F77EF7235FF0AD009252C2 /* TodoItem.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		605F3B47235E3CED00F5A64C /* SwiftUI_TodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUI_TodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		605F3B4B235E3CED00F5A64C /* SwiftUI_TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_TodoUITests.swift; sourceTree = "<group>"; };
 		605F3B4D235E3CED00F5A64C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6080EACE23634AA900829B92 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		60B17DBC235E3FE5002A17D5 /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
 		60F77EF7235FF0AD009252C2 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				60F77EF7235FF0AD009252C2 /* TodoItem.swift */,
+				6080EACE23634AA900829B92 /* UserData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				60B17DBD235E3FE5002A17D5 /* TodoRow.swift in Sources */,
 				605F3B27235E3CEB00F5A64C /* AppDelegate.swift in Sources */,
+				6080EACF23634AAA00829B92 /* UserData.swift in Sources */,
 				605F3B2C235E3CEB00F5A64C /* SwiftUI_Todo.xcdatamodeld in Sources */,
 				605F3B2E235E3CEB00F5A64C /* TodoList.swift in Sources */,
 				60F77EF8235FF0AD009252C2 /* TodoItem.swift in Sources */,
